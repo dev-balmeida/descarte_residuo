@@ -1,0 +1,55 @@
+<div class="container">
+
+  <div>
+    <form (ngSubmit)="pointSearch()" class="formulario">
+
+      <h3>Procurar ponto de descarte...</h3>
+
+      <label>Nome:
+        <input [(ngModel)]="searchParams.nome" name="nome" id="form-nome" type="text">
+      </label>
+
+      <label>Zona:
+        <input [(ngModel)]="searchParams.zona" name="zona" type="text">
+      </label>
+
+      <div class="buttons">
+        <button class="button-search" type="submit">Buscar</button>
+        <button class="button-clear" type="button" (click)="clearFilters()">Limpar</button>
+      </div>
+
+    </form>
+
+    <h2>Descarte de Resíduos</h2>
+
+  </div>
+
+  <div class="lista">
+
+    <h3>Lista de pontos de descarte</h3>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Endereço</th>
+          <th>Zona</th>
+          <th>Contatos</th>
+          <th>Horário de expediente</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let descarte of descarte">
+          <td>{{ descarte.nome }}</td>
+          <td>{{ descarte.endereco }}</td>
+          <td>{{ descarte.zona }}</td>
+          <td>{{ descarte.contatos }}</td>
+          <td>{{ descarte.horarioExpediente }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
